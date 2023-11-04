@@ -1,0 +1,38 @@
+
+
+package examenfinal.examenfinal;
+
+
+public class ExamenFinal {
+
+    public static class MainClass {
+
+        public static void main(String[] args) {
+            // Configuración de contraseñas predeterminada
+            PasswordConfig defaultConfig = new PasswordConfig();
+            defaultConfig.setMinLength(12);
+            defaultConfig.setMinDigits(2);
+            defaultConfig.setMinUpperCaseLetters(2);
+            defaultConfig.setMinLowerCaseLetters(2);
+            defaultConfig.setMinSpecialCharacters(2);
+
+            // Configuración de contraseñas personalizada
+            PasswordConfig customConfig = new PasswordConfig();
+            customConfig.setMinLength(10);
+            customConfig.setMinDigits(3);
+            customConfig.setMinUpperCaseLetters(1);
+            customConfig.setMinLowerCaseLetters(2);
+            customConfig.setMinSpecialCharacters(1);
+
+            // Usa PasswordGenManager si ese es el nombre correcto de tu clase
+            PasswordGenManager generatorManager = new PasswordGenManager();
+
+            // Generar y mostrar contraseñas
+            String defaultPassword = generatorManager.generatePassword(defaultConfig);
+            String customPassword = generatorManager.generatePassword(customConfig);
+
+            System.out.println("Contraseña Predeterminada: " + defaultPassword);
+            System.out.println("Contraseña Personalizada: " + customPassword);
+        }
+    }
+}
